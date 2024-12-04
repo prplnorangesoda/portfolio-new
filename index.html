@@ -5,9 +5,92 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + TS</title>
+    <style>
+body {
+  margin: 0;
+  color-scheme: dark only;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #111;
+
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  
+  line-height: 2;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+main {
+  margin: auto;
+}
+#box {
+  border-radius: 5px;
+  background-color: #242424;
+  width: min(90vw, 800px);
+  height: 500px;
+  display: flex;
+  place-self: center;
+  place-items: center;
+}
+#box > * {
+  flex: 1;
+  padding: 50px;
+  text-align: center;
+}
+
+#box ul li {
+  text-align: left;
+  list-style: none;
+}
+#box ul li::before {
+  content: '-';
+  padding-right: 0.5em;
+}
+footer {
+  text-align: center;
+  height: 100px;
+  max-width: 100vw;
+
+}
+/* URLs */
+footer > ul > li {
+  display: inline;
+}
+/* separate list elements with a slash */
+footer > ul > li:not(:last-child)::after {
+  content: '/';
+  color: grey;
+}
+    </style>
   </head>
   <body>
-    <div id="app"></div>
+    <main>
+      <div id="box">
+        <h1>
+          lucy
+        </h1>
+        <ul>
+          <li>something about me</li>
+          <li>something about me</li>
+          <li>something about me</li>
+          <li>something about me</li>
+        </ul>
+      </div>
+    </main>
+    <footer>
+      <ul>
+        <li> <a href="#">discord</a> </li>
+        <li> <a href="#">whatever</a> </li>
+        <li> <a href="#">other</a> </li>
+      </ul>
+    </footer>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
