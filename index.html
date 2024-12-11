@@ -5,120 +5,16 @@
   <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vite + TS</title>
-  <style>
-html, body {
-  overflow: hidden;
-  overflow-y: scroll;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  color-scheme: dark only;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #111;
-
-  display: flex;
-  flex-direction: column;
-  place-items: center;
-  width: 100vw;
-  height: 100vh;
-  
-  line-height: 2;
-}
-body {
-  position: relative;
-}
-a {
-  color: inherit;
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-}
-main {
-  margin: auto;
-}
-#container {
-  display: flex;
-  width: min(90vw, 500px);
-  height: 500px;
-  display: flex;
-  place-self: center;
-  place-items: center;
-}
-#blur {
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 100dvh;
-  width: 100dvw;
-  overflow: hidden;
-  z-index: 10;
-  background-color: #000000AA;
-  backdrop-filter: blur(10px);
-}
-#box {
-  position: static;
-  height: 120%;
-  width: 100%;
-  border-radius: 5px;
-  display: flex;
-  place-self: center;
-  place-items: center;
-  z-index: 50;
-}
-#container::before {
-  align-self: center;
-  left: 50%;
-  transform: translateX(-50%);
-  content: "";
-  width: auto;
-  height: inherit;
-  aspect-ratio: 1/1;
-  position: absolute;
-  border-radius: 50%;
-  z-index: 1;
-  background: center center/cover no-repeat scroll url(/ruepfp.png);
-}
-#box > * {
-  flex: 2;
-  padding: 50px;
-  text-align: center;
-}
-#box > h1 {
-  flex: 1;
-}
-#box ul li {
-  text-align: left;
-  list-style: none;
-}
-#box ul li::before {
-  content: '\ -\ ';
-}
-footer {
-  z-index: 1000;
-  text-align: center;
-  height: 100px;
-  max-width: 100vw;
-
-}
-/* URLs */
-footer > ul > li {
-  display: inline;
-}
-/* separate list elements with a slash */
-footer > ul > li:not(:last-child)::after {
-  content: '/';
-  color: grey;
-}
-  </style>
 </head>
 <body>
+  <p id="mousehelp" class="above-blur" style="opacity: 1;">try mousing over the background picture!</p>
+  <div id="mouseblur"></div>
   <div id="blur"></div>
   <main>
     <div id="container">
-      <div id="box">
+      <div id="box" class="above-blur">
         <h1>
-          lucy
+          lucy <noscript>(this site is better with javascript)</noscript>
         </h1>
         <ul>
           <li>something about me</li>
