@@ -1,12 +1,14 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
-    <style>
-body {
+<head>
+  <meta charset="UTF-8" />
+  <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite + TS</title>
+  <style>
+html, body {
+  width: 100%;
+  height: 100%;
   margin: 0;
   color-scheme: dark only;
   color: rgba(255, 255, 255, 0.87);
@@ -15,8 +17,8 @@ body {
   display: flex;
   flex-direction: column;
   place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
   
   line-height: 2;
 }
@@ -30,21 +32,55 @@ a:hover {
 main {
   margin: auto;
 }
-#box {
-  border-radius: 5px;
-  background-color: #242424;
-  width: min(90vw, 800px);
+#container {
+  display: flex;
+  width: min(90vw, 500px);
   height: 500px;
   display: flex;
   place-self: center;
   place-items: center;
 }
+#blur {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 10;
+  background-color: #000000AA;
+  backdrop-filter: blur(10px);
+}
+#box {
+  position: static;
+  height: 120%;
+  width: 100%;
+  border-radius: 5px;
+  display: flex;
+  place-self: center;
+  place-items: center;
+  z-index: 50;
+}
+#container::before {
+  align-self: center;
+  left: 50%;
+  transform: translateX(-50%);
+  content: "";
+  width: auto;
+  height: inherit;
+  aspect-ratio: 1/1;
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+  background: center center/cover no-repeat scroll url(/ruepfp.png);
+}
 #box > * {
-  flex: 1;
+  flex: 2;
   padding: 50px;
   text-align: center;
 }
-
+#box > h1 {
+  flex: 1;
+}
 #box ul li {
   text-align: left;
   list-style: none;
@@ -54,6 +90,7 @@ main {
   padding-right: 0.5em;
 }
 footer {
+  z-index: 1000;
   text-align: center;
   height: 100px;
   max-width: 100vw;
@@ -68,10 +105,12 @@ footer > ul > li:not(:last-child)::after {
   content: '/';
   color: grey;
 }
-    </style>
-  </head>
-  <body>
-    <main>
+  </style>
+</head>
+<body>
+  <main>
+    <div id="container">
+      <div id="blur"></div>
       <div id="box">
         <h1>
           lucy
@@ -83,14 +122,15 @@ footer > ul > li:not(:last-child)::after {
           <li>something about me</li>
         </ul>
       </div>
-    </main>
-    <footer>
-      <ul>
-        <li> <a href="#">discord</a> </li>
-        <li> <a href="#">whatever</a> </li>
-        <li> <a href="#">other</a> </li>
-      </ul>
-    </footer>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+    </div>
+  </main>
+  <footer>
+    <ul>
+      <li> <a href="#">discord</a> </li>
+      <li> <a href="#">whatever</a> </li>
+      <li> <a href="#">other</a> </li>
+    </ul>
+  </footer>
+  <script type="module" src="/src/main.ts"></script>
+</body>
 </html>
