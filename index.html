@@ -7,31 +7,33 @@
   <title>Vite + TS</title>
 </head>
 <body>
-  <p id="mousehelp" class="above-blur" style="opacity: 1;">try mousing over the background picture!</p>
   <div id="mouseblur"></div>
   <div id="blur"></div>
-  <main>
-    <div id="container">
-      <div id="box" class="above-blur">
-        <h1>
-          lucy <noscript>(this site is better with javascript)</noscript>
-        </h1>
-        <ul>
-          <li>something about me</li>
-          <li>something about me</li>
-          <li>something about me</li>
-          <li>something about me</li>
-        </ul>
-      </div>
-    </div>
-  </main>
-  <footer>
-    <ul>
+  <header>
+    <ul style="padding-left: 0">
       <li> <a href="#">discord</a> </li>
       <li> <a href="#">whatever</a> </li>
       <li> <a href="#">other</a> </li>
     </ul>
-  </footer>
+  </header>
+  <main>
+    <div id="container">
+      <div id="box" class="above-blur">
+        <h1>
+          <span class="selectable"> lucy <noscript>(this site is better with javascript)</noscript> </span>
+        </h1>
+        <ul aria-label="about me">
+          <li><span class="selectable">she/her, developer</span></li>
+          <li><span class="selectable">something about me</span></li>
+          <li><span class="selectable">something about me</span></li>
+          <li><span class="selectable">something about me</span></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+  <p id="mousehelp" class="above-blur" style="opacity: 1;" aria-hidden="true">try mousing over the background picture!</p>
+  <div class="arrow above-blur">▼</div>
+  
   <script type="module" src="/src/main.ts"></script>
 </body>
 </html>
