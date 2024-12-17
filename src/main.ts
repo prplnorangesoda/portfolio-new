@@ -17,7 +17,12 @@ const FADE_OUT_SETTINGS = {
   iterations: 1,
 };
 
-function create_help_text(element: HTMLParagraphElement): boolean {
+/**
+ *
+ * @param element the element to make into fading help text
+ * @returns whether it was actually made fading or not
+ */
+function create_help_text(element: HTMLElement): boolean {
   if (window.matchMedia("only screen and (pointer: none)").matches) {
     return false;
   }
@@ -44,6 +49,8 @@ function create_help_text(element: HTMLParagraphElement): boolean {
 
   return true;
 }
+
+function create_scroll_arrow(element: HTMLElement) {}
 function main() {
   let help_text = document.querySelector<HTMLParagraphElement>("#mousehelp")!;
   create_help_text(help_text);
