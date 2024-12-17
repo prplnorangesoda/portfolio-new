@@ -1,6 +1,7 @@
 html,
 body {
-  overflow: hidden;
+  font-family: sans-serif;
+  overflow-x: hidden;
   overflow-y: scroll;
   width: 100%;
   height: 100%;
@@ -13,7 +14,7 @@ body {
   flex-direction: column;
   place-items: center;
   width: 100vw;
-  height: 100vh;
+  height: auto;
 
   line-height: 2;
 }
@@ -27,15 +28,20 @@ a {
 a:hover {
   text-decoration: underline;
 }
+div#main-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 main {
-  margin: auto;
 }
 #container {
   display: flex;
   width: min(90vw, 500px);
+  margin: auto;
   height: 500px;
-  display: flex;
-  place-self: center;
   place-items: center;
 }
 #blur {
@@ -47,7 +53,7 @@ main {
   overflow: hidden;
   z-index: 10;
   background-color: #00000050;
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(5px);
 }
 #mouseblur {
   position: fixed;
@@ -75,11 +81,9 @@ main {
 #box {
   position: static;
   cursor: none;
-  height: 120%;
+  height: 100%;
   width: 100%;
-  border-radius: 5px;
   display: flex;
-  place-self: center;
   place-items: center;
 }
 .above-blur {
@@ -87,14 +91,13 @@ main {
   text-shadow: 0px 0px 5px #111;
 }
 #container::before {
-  place-self: center;
+  position: absolute;
   left: 50%;
   transform: translateX(-50%);
   content: "";
   width: auto;
   height: inherit;
   aspect-ratio: 1/1;
-  position: absolute;
   border-radius: 10%;
   z-index: 1;
   background: center center/cover no-repeat scroll url(/tinypfp.png);
@@ -123,10 +126,12 @@ main {
   content: "\ -\ ";
 } */
 header {
+  position: fixed;
   z-index: 1000;
   text-align: center;
   height: 100px;
-  max-width: 100vw;
+  width: 30%;
+  min-width: 300px;
 }
 /* URLs */
 header > ul > li {
@@ -138,12 +143,18 @@ header > ul > li:not(:last-child)::after {
   color: grey;
 }
 
+#scroll-arrow {
+  position: absolute;
+  bottom: 10%;
+}
 .arrow {
   cursor: pointer;
   font-size: 40pt;
 }
 
 #mousehelp {
+  position: absolute;
+  bottom: 20%;
   font-size: larger;
   cursor: default;
   user-select: none;
@@ -151,7 +162,10 @@ header > ul > li:not(:last-child)::after {
 span.selectable {
   cursor: text;
 }
-@media only screen and (pointer: fine) or (pointer: coarse) {
+@media screen and not ((pointer: fine) or (pointer: coarse)) {
+  #mousehelp {
+    display: none !important;
+  }
 }
 @media only screen and (max-width: 500px) {
   /*SOON*/

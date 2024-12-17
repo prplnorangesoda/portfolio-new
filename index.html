@@ -16,24 +16,30 @@
       <li> <a href="#">other</a> </li>
     </ul>
   </header>
-  <main>
-    <div id="container">
-      <div id="box" class="above-blur">
-        <h1>
-          <span class="selectable"> lucy <noscript>(this site is better with javascript)</noscript> </span>
-        </h1>
-        <ul aria-label="about me">
-          <li><span class="selectable">she/her, developer</span></li>
-          <li><span class="selectable">something about me</span></li>
-          <li><span class="selectable">something about me</span></li>
-          <li><span class="selectable">something about me</span></li>
-        </ul>
+  <div id="main-container">
+    <main>
+      <div id="container">
+        <div id="box" class="above-blur">
+          <h1>
+            <span class="selectable"> lucy <noscript>(this site is better with javascript)</noscript> </span>
+          </h1>
+          <ul aria-label="about me">
+            <li><span class="selectable">she/her, developer</span></li>
+            <li><span class="selectable">something about me</span></li>
+            <li><span class="selectable">something about me</span></li>
+            <li><span class="selectable">something about me</span></li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </main>
+    </main>
+  </div>
   <p id="mousehelp" class="above-blur" style="opacity: 1;" aria-hidden="true">try mousing over the background picture!</p>
-  <div class="arrow above-blur">▼</div>
+  <button id="scroll-arrow" class="arrow above-blur">▼</button>
   
+  <article class="above-blur">
+    <h1>something</h1>
+    <p>something else</p>
+  </article>
   <script type="module" src="/src/main.ts"></script>
 </body>
 </html>
