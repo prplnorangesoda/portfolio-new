@@ -50,7 +50,11 @@ function create_help_text(element: HTMLElement): boolean {
   return true;
 }
 
-function create_scroll_arrow(element: HTMLElement) {}
+function create_scroll_arrow(element: HTMLElement) {
+  element.addEventListener("click", function (this, event) {
+    window.scrollTo({ behavior: "smooth", top: 650, left: 0 });
+  });
+}
 function main() {
   let help_text = document.querySelector<HTMLParagraphElement>("#mousehelp")!;
   create_help_text(help_text);
@@ -60,6 +64,9 @@ function main() {
     mouseblur.style.left = `${event.clientX - 250}px`;
     mouseblur.style.top = `${event.clientY - 250}px`;
   });
+
+  let arrow = document.querySelector<HTMLButtonElement>("#scroll-arrow")!;
+  create_scroll_arrow(arrow);
 }
 
 main();
